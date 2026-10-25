@@ -138,6 +138,90 @@ table.records{width:100%;border-collapse:collapse;font-size:14px}
 .t-wait{background:var(--amber-soft);color:var(--amber)}
 .t-move{background:var(--rose-soft);color:var(--rose)}
 
+/* ---------- interactive dashboard demo ---------- */
+.dash-note{margin:16px auto 0;max-width:760px;text-align:center;font-size:12.5px;color:var(--muted)}
+.dash-side .tip{cursor:pointer;transition:border-color .15s ease,box-shadow .15s ease}
+.dash-side .tip:hover{border-color:var(--blue);box-shadow:0 8px 20px rgba(46,123,224,.14)}
+.chart .col{cursor:pointer}
+.chart .col i{transition:height .6s cubic-bezier(.2,.8,.2,1),box-shadow .15s ease,transform .2s ease}
+.chart .col:hover i{box-shadow:0 8px 18px rgba(46,123,224,.36)}
+.chart .col.sel i{box-shadow:0 0 0 3px rgba(46,123,224,.22),0 6px 14px rgba(46,123,224,.3);transform:translateY(-2px)}
+.chart .col.sel em{color:var(--blue-d)}
+.bar i{transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.table-panel{overflow-x:auto}
+.tag{border:0;font-family:inherit;cursor:pointer;transition:transform .12s ease,filter .15s ease}
+.tag:hover{filter:brightness(.95)}
+.tag:active{transform:scale(.95)}
+.records .rm{border:0;background:transparent;color:#B7C6DB;font-size:15px;line-height:1;width:26px;height:26px;border-radius:8px;cursor:pointer;transition:.15s}
+.records .rm:hover{background:var(--rose-soft);color:var(--rose)}
+
+/* new record modal */
+.dash-modal{position:fixed;inset:0;background:rgba(11,37,69,.55);display:grid;place-items:center;padding:20px;z-index:90}
+.dash-modal[hidden]{display:none}
+.modal-card{width:min(460px,100%);background:#fff;border-radius:22px;padding:26px;box-shadow:0 34px 80px rgba(11,37,69,.4);animation:pop .2s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.modal-card h5{margin:0;font-size:19px;font-weight:800;color:var(--blue-deep)}
+.modal-card .psub{margin:4px 0 18px}
+.modal-card label{display:block;font-size:12.5px;font-weight:800;color:var(--muted);margin-bottom:6px}
+.modal-card .f{display:grid;gap:13px}
+.modal-card input,.modal-card select{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;font:inherit;font-size:14.5px;background:var(--sky);color:var(--ink)}
+.modal-card input:focus,.modal-card select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft);background:#fff}
+.modal-actions{display:flex;gap:10px}
+.modal-actions .btn{flex:1;justify-content:center}
+.btn-cancel{border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:12px;padding:10px 18px;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;transition:.15s}
+.btn-cancel:hover{border-color:var(--blue);color:var(--blue-d)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,24px);opacity:0;pointer-events:none;background:#0B2545;color:#fff;font-size:14px;font-weight:700;padding:12px 22px;border-radius:999px;box-shadow:0 16px 36px rgba(11,37,69,.4);transition:.25s ease;z-index:95}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* schedule slots */
+.slots-wrap{overflow-x:auto}
+.slots{display:grid;grid-template-columns:158px repeat(5,1fr);gap:8px;min-width:560px}
+.slots .sh{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8AA2BF;text-align:center}
+.slots .cab{display:flex;align-items:center;font-size:13px;font-weight:700;color:var(--blue-deep);line-height:1.25}
+.slot{border:1.5px dashed var(--line);border-radius:12px;background:var(--sky);padding:11px 6px;text-align:center;font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;transition:.15s}
+.slot:hover{border-color:var(--blue);background:#fff;color:var(--blue-d);transform:translateY(-2px)}
+.slot.busy{border-style:solid;border-color:#CFE4FF;background:var(--blue-soft);color:var(--blue-d)}
+.slot.busy:hover{background:#DEEBFF}
+.slot small{display:block;font-weight:600;font-size:11px;opacity:.78;margin-top:2px}
+
+/* doctors / patients lists */
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.tools input{flex:1;min-width:200px;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;font:inherit;font-size:14px;background:var(--sky)}
+.tools input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft);background:#fff}
+.ghost-btn{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 16px;font:inherit;font-size:13.5px;font-weight:700;color:var(--blue-d);cursor:pointer;transition:.15s}
+.ghost-btn:hover{border-color:var(--blue);background:var(--blue-soft)}
+.dlist{display:grid;gap:10px}
+.drow{display:grid;grid-template-columns:auto 1.3fr 1fr auto auto;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;box-shadow:var(--shadow-sm);transition:.15s}
+.drow:hover{border-color:#CFE4FF;box-shadow:0 8px 20px rgba(46,123,224,.12)}
+.drow .av{width:38px;height:38px;border-radius:50%;background:var(--blue-soft);color:var(--blue-d);display:grid;place-items:center;font-size:13px;font-weight:800}
+.drow b{font-size:15px}
+.drow .m{color:var(--muted);font-size:13px}
+.drow .load{min-width:130px}
+.drow .load b{display:block;font-size:12.5px;color:var(--blue-deep);margin-bottom:5px}
+.drow .load .bar{grid-column:auto}
+.switch{width:46px;height:26px;border-radius:999px;background:#D6E4F7;border:0;position:relative;cursor:pointer;flex:none;transition:background .2s ease}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(11,37,69,.28);transition:left .2s ease}
+.switch.on{background:linear-gradient(135deg,#3B8CFF,#1C5FC4)}
+.switch.on::after{left:23px}
+
+/* reports */
+.rep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+.rep{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.rep b{display:block;font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--blue-deep);letter-spacing:-.02em}
+.rep span{font-size:12.5px;color:var(--muted)}
+.rep em{display:inline-block;font-style:normal;margin-top:8px;font-size:11.5px;font-weight:800;color:#0E9B73;background:var(--green-soft);padding:3px 9px;border-radius:999px}
+.rep em.dn{color:var(--rose);background:var(--rose-soft)}
+
+/* settings */
+.set-list{display:grid;gap:12px}
+.set{display:flex;justify-content:space-between;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 18px;box-shadow:var(--shadow-sm)}
+.set b{display:block;font-size:15px}
+.set p{margin:3px 0 0;font-size:12.5px;color:var(--muted);max-width:520px}
+.set select{border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;font:inherit;font-size:14px;background:var(--sky);color:var(--ink);cursor:pointer}
+.set select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}
+
 /* ---------- pains / steps / features ---------- */
 .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 4px 14px rgba(21,23,28,.04)}
@@ -223,6 +307,7 @@ footer .grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:ce
   .dashboard{grid-template-columns:184px 1fr}
   .kpis{grid-template-columns:1fr 1fr}
   .dash-row{grid-template-columns:1fr}
+  .rep-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
   section{padding:60px 0}
@@ -236,6 +321,11 @@ footer .grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:ce
   .dash-nav{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;gap:8px}
   .dash-main{padding:18px 16px}
   .records th:nth-child(4),.records td:nth-child(4){display:none}
+  .rep-grid{grid-template-columns:1fr}
+  .drow{grid-template-columns:auto 1fr auto}
+  .drow .load,.drow .m{display:none}
+  .set{flex-direction:column;align-items:flex-start}
+  .modal-card{padding:22px}
   .hero h1{font-size:32px}
 }
 </style>
@@ -309,97 +399,62 @@ footer .grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:ce
         <p class="lead" style="margin:0 auto">Живой макет из ТЗ: записи по врачам, статусы, загруженность кабинетов и выручка по дням. Клиента достаточно показать этот экран — он сразу видит ценность.</p>
       </div>
 
-      <div class="dashboard reveal">
+      <div class="dashboard reveal" id="dash">
         <aside class="dash-side">
           <div class="brand"><span>К</span>Клиника.Онлайн</div>
-          <nav class="dash-nav">
-            <a class="on" href="#dashboard"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="13" rx="3"/><path d="M3 8.6h14M6.7 2.6v3.2M13.3 2.6v3.2"/></svg>Записи</a>
-            <a href="#dashboard"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.4"/><path d="M10 5.8V10l2.9 1.9"/></svg>Расписание</a>
-            <a href="#dashboard"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3.1"/><path d="M2.4 17c0-3.1 2.5-5.3 5.6-5.3s5.6 2.2 5.6 5.3M14.4 4.6a3 3 0 010 5.5"/></svg>Врачи</a>
-            <a href="#dashboard"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="6.6" r="3.1"/><path d="M3.8 17c0-3.3 2.8-5.6 6.2-5.6s6.2 2.3 6.2 5.6"/></svg>Пациенты</a>
-            <a href="#dashboard"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 16.4V9.6M10 16.4V4.4M15.8 16.4v-4.8"/></svg>Отчёты</a>
-            <a href="#dashboard"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6l6 2.2v4.9c0 3.9-2.6 6.5-6 7.7-3.4-1.2-6-3.8-6-7.7V4.8z"/><path d="M7.6 10.1l1.8 1.8 3.2-3.4"/></svg>Настройки · 152-ФЗ</a>
+          <nav class="dash-nav" id="dashNav">
+            <a class="on" href="#dashboard" data-view="records"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="13" rx="3"/><path d="M3 8.6h14M6.7 2.6v3.2M13.3 2.6v3.2"/></svg>Записи</a>
+            <a href="#dashboard" data-view="schedule"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.4"/><path d="M10 5.8V10l2.9 1.9"/></svg>Расписание</a>
+            <a href="#dashboard" data-view="doctors"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3.1"/><path d="M2.4 17c0-3.1 2.5-5.3 5.6-5.3s5.6 2.2 5.6 5.3M14.4 4.6a3 3 0 010 5.5"/></svg>Врачи</a>
+            <a href="#dashboard" data-view="patients"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="6.6" r="3.1"/><path d="M3.8 17c0-3.3 2.8-5.6 6.2-5.6s6.2 2.3 6.2 5.6"/></svg>Пациенты</a>
+            <a href="#dashboard" data-view="reports"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 16.4V9.6M10 16.4V4.4M15.8 16.4v-4.8"/></svg>Отчёты</a>
+            <a href="#dashboard" data-view="settings"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6l6 2.2v4.9c0 3.9-2.6 6.5-6 7.7-3.4-1.2-6-3.8-6-7.7V4.8z"/><path d="M7.6 10.1l1.8 1.8 3.2-3.4"/></svg>Настройки · 152-ФЗ</a>
           </nav>
-          <div class="tip">
+          <div class="tip" id="dashTip" role="button" tabindex="0" title="Клик — обновить синхронизацию (демо)">
             <b>Синхронизация с МИС</b>
-            Расписание обновлено 4 минуты назад · все 6 врачей онлайн
+            <span id="tipText">Обновлено 4 минуты назад · 5 из 6 врачей онлайн</span>
           </div>
         </aside>
+
         <div class="dash-main">
           <div class="dash-top">
             <div>
-              <h4>Записи · сегодня, 25 октября</h4>
-              <p class="sub">Клиника на Лесной · 4 кабинета · 6 врачей на смене</p>
+              <h4 id="dashTitle">Записи · сегодня, 25 октября</h4>
+              <p class="sub" id="dashSub">Клиника на Лесной · 4 кабинета · 6 врачей на смене</p>
             </div>
             <div class="dash-actions">
-              <div class="seg"><button class="on" type="button">Сегодня</button><button type="button">Неделя</button></div>
-              <button class="dash-btn" type="button">+ Новая запись</button>
+              <div class="seg" id="dashSeg"><button class="on" type="button" data-period="today">Сегодня</button><button type="button" data-period="week">Неделя</button></div>
+              <button class="dash-btn" id="dashNew" type="button">+ Новая запись</button>
             </div>
           </div>
 
-          <div class="kpis">
-            <div class="kpi">
-              <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="13" rx="3"/><path d="M3 8.6h14M6.7 2.6v3.2M13.3 2.6v3.2"/></svg></div>
-              <div><b>54</b><span>записей сегодня</span></div>
-              <div class="up">▲ +12% ко вчера</div>
-            </div>
-            <div class="kpi">
-              <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14L14 6"/><circle cx="6.7" cy="6.7" r="2"/><circle cx="13.3" cy="13.3" r="2"/></svg></div>
-              <div><b>86%</b><span>заполненность слотов</span></div>
-              <div class="up">▲ +4 п.п.</div>
-            </div>
-            <div class="kpi">
-              <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3a5 5 0 00-5 5c0 3.9-1.5 5.2-1.5 5.2h13S15 11.9 15 8a5 5 0 00-5-5z"/><path d="M8.4 16.4a1.9 1.9 0 003.2 0"/></svg></div>
-              <div><b>48</b><span>напоминаний отправлено</span></div>
-              <div class="up">96% доставлено</div>
-            </div>
-            <div class="kpi">
-              <div class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.4"/><path d="M7.6 7.6l4.8 4.8M12.4 7.6l-4.8 4.8"/></svg></div>
-              <div><b>3</b><span>отмены и переносы</span></div>
-              <div class="up down">▼ −1 к вчера</div>
-            </div>
-          </div>
+          <div id="dashView"></div>
 
-          <div class="dash-row">
-            <div class="panel">
-              <h5>Записи по дням</h5>
-              <p class="psub">Пн — вс, подтверждённые записи</p>
-              <div class="chart" aria-hidden="true">
-                <div class="col"><i style="height:38%"></i><em>пн</em></div>
-                <div class="col"><i style="height:54%"></i><em>вт</em></div>
-                <div class="col"><i style="height:46%"></i><em>ср</em></div>
-                <div class="col"><i style="height:68%"></i><em>чт</em></div>
-                <div class="col hi"><i style="height:92%"></i><em>пт</em></div>
-                <div class="col"><i style="height:76%"></i><em>сб</em></div>
-                <div class="col"><i style="height:30%"></i><em>вс</em></div>
-              </div>
-            </div>
-            <div class="panel">
-              <h5>Заполненность кабинетов</h5>
-              <p class="psub">Сегодня, по врачам</p>
-              <div class="fill">
-                <div class="frow"><span>Терапия · Иванова А.</span><b>92%</b><div class="bar"><i style="width:92%"></i></div></div>
-                <div class="frow"><span>Кардиология · Петров С.</span><b>84%</b><div class="bar"><i style="width:84%"></i></div></div>
-                <div class="frow"><span>УЗИ-диагностика · Кузнецов Д.</span><b>76%</b><div class="bar"><i style="width:76%"></i></div></div>
-                <div class="frow"><span>Педиатрия · Соколова М.</span><b>58%</b><div class="bar"><i style="width:58%"></i></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel table-panel">
-            <table class="records">
-              <thead><tr><th>Время</th><th>Пациент</th><th>Врач</th><th>Услуга</th><th>Статус</th></tr></thead>
-              <tbody>
-                <tr><td class="tm">09:00</td><td>Тимофеева Р.</td><td><div class="who"><span class="av">ИА</span>Иванова А.</div></td><td>Первичный приём</td><td><span class="tag t-ok">Подтверждена</span></td></tr>
-                <tr><td class="tm">10:30</td><td>Мельник О.</td><td><div class="who"><span class="av">ПС</span>Петров С.</div></td><td>ЭКГ с расшифровкой</td><td><span class="tag t-wait">Ожидает</span></td></tr>
-                <tr><td class="tm">11:00</td><td>Смирнова К.</td><td><div class="who"><span class="av">КД</span>Кузнецов Д.</div></td><td>УЗИ органов брюшной полости</td><td><span class="tag t-ok">Подтверждена</span></td></tr>
-                <tr><td class="tm">12:30</td><td>Дементьев П.</td><td><div class="who"><span class="av">ИА</span>Иванова А.</div></td><td>Повторный приём</td><td><span class="tag t-ok">Подтверждена</span></td></tr>
-                <tr><td class="tm">13:00</td><td>Гаврилова Л.</td><td><div class="who"><span class="av">ПС</span>Петров С.</div></td><td>Консультация</td><td><span class="tag t-move">Пациент переносит</span></td></tr>
-              </tbody>
-            </table>
-          </div>
+          <p class="dash-note">Интерактивное демо: переключайте «Сегодня / Неделя», открывайте пункты меню слева, жмите на статус в таблице, на день в графике и на «+ Новая запись». Все данные вымышлены.</p>
         </div>
       </div>
+
+      <div class="dash-modal" id="dashModal" hidden>
+        <form class="modal-card" id="dashForm">
+          <h5>Новая запись</h5>
+          <p class="psub">Демо-форма: запись появится в таблице. Ничего никуда не отправляется.</p>
+          <div class="f">
+            <div><label for="mPat">Пациент</label><input id="mPat" type="text" placeholder="Фамилия и инициал, напр. Орлова В." required></div>
+            <div><label for="mDoc">Врач</label><select id="mDoc"></select></div>
+            <div><label for="mTime">Время</label><select id="mTime"></select></div>
+            <div><label for="mSvc">Услуга</label><select id="mSvc">
+              <option>Первичный приём</option><option>Повторный приём</option><option>Консультация</option>
+              <option>ЭКГ с расшифровкой</option><option>УЗИ органов брюшной полости</option><option>Диспансерный осмотр</option>
+            </select></div>
+            <div class="modal-actions">
+              <button class="btn btn-primary" type="submit" style="justify-content:center">Добавить запись</button>
+              <button class="btn-cancel" type="button" id="mCancel">Отмена</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="toast" id="dashToast" role="status" aria-live="polite"></div>
     </div>
   </section>
 
@@ -582,6 +637,437 @@ footer .grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:ce
     ok.style.display = 'block';
     f.querySelectorAll('input,textarea,button').forEach(function(i){ i.disabled = true; });
   });
+})();
+</script>
+
+<script>
+/* ============ ЖИВОЕ ДЕМО ДАШБОРДА ============
+   Все данные вымышленные, ничего не отправляется и не сохраняется.
+   Кликабельно: пункт меню, Сегодня/Неделя, статусы, день в графике,
+   слоты, переключатели, «+ Новая запись», экспорт CSV. */
+(function(){
+  var root = document.getElementById('dash');
+  if(!root) return;
+  var viewEl = document.getElementById('dashView');
+  var modal = document.getElementById('dashModal');
+  var toastEl = document.getElementById('dashToast');
+  var titleEl = document.getElementById('dashTitle');
+  var subEl = document.getElementById('dashSub');
+  var tipText = document.getElementById('tipText');
+  var mPat = document.getElementById('mPat'), mDoc = document.getElementById('mDoc'),
+      mTime = document.getElementById('mTime'), mSvc = document.getElementById('mSvc');
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function av(name){ var p = String(name).split(' '); return ((p[0]||'?')[0] + (p[1] ? p[1][0] : '')).toUpperCase(); }
+
+  var ICONS = [
+    '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="13" rx="3"/><path d="M3 8.6h14M6.7 2.6v3.2M13.3 2.6v3.2"/></svg>',
+    '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14L14 6"/><circle cx="6.7" cy="6.7" r="2"/><circle cx="13.3" cy="13.3" r="2"/></svg>',
+    '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3a5 5 0 00-5 5c0 3.9-1.5 5.2-1.5 5.2h13S15 11.9 15 8a5 5 0 00-5-5z"/><path d="M8.4 16.4a1.9 1.9 0 003.2 0"/></svg>',
+    '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.4"/><path d="M7.6 7.6l4.8 4.8M12.4 7.6l-4.8 4.8"/></svg>'
+  ];
+
+  var ST = {ok:'Подтверждена', wait:'Ожидает', move:'Пациент переносит'};
+  var STC = {ok:'t-ok', wait:'t-wait', move:'t-move'};
+  var ORDER = ['ok','wait','move'];
+
+  var DOC = [
+    {n:'Иванова А.',  sp:'Терапевт',          load:92, on:true},
+    {n:'Петров С.',   sp:'Кардиолог',         load:84, on:true},
+    {n:'Кузнецов Д.', sp:'УЗИ-диагностика',   load:76, on:true},
+    {n:'Соколова М.', sp:'Педиатр',           load:58, on:true},
+    {n:'Морозова О.', sp:'Гинеколог',         load:64, on:true},
+    {n:'Лебедев И.',  sp:'Дерматолог',        load:41, on:false}
+  ];
+
+  var CHART = [
+    {d:'пн', h:38, n:41}, {d:'вт', h:54, n:57}, {d:'ср', h:46, n:49},
+    {d:'чт', h:68, n:71}, {d:'пт', h:92, n:96}, {d:'сб', h:76, n:79},
+    {d:'вс', h:30, n:33}
+  ];
+
+  var DATA = {
+    today: {
+      title:'Записи · сегодня, 25 октября',
+      sub:'Клиника на Лесной · 4 кабинета · 6 врачей на смене',
+      kpi:[
+        {v:54, s:'', l:'записей сегодня',      d:'▲ +12% ко вчера'},
+        {v:86, s:'%', l:'заполненность слотов', d:'▲ +4 п.п.'},
+        {v:48, s:'', l:'напоминаний отправлено', d:'96% доставлено'},
+        {v:3,  s:'', l:'отмены и переносы',     d:'▼ −1 к вчера', dn:1}
+      ],
+      fillSub:'Сегодня, по врачам',
+      fill:[['Терапия · Иванова А.',92],['Кардиология · Петров С.',84],
+            ['УЗИ-диагностика · Кузнецов Д.',76],['Педиатрия · Соколова М.',58]],
+      head:['Время','Пациент','Врач','Услуга','Статус'],
+      rows:[
+        {t:'09:00', p:'Тимофеева Р.', d:'Иванова А.',   s:'Первичный приём',            st:'ok'},
+        {t:'10:30', p:'Мельник О.',   d:'Петров С.',    s:'ЭКГ с расшифровкой',         st:'wait'},
+        {t:'11:00', p:'Смирнова К.',  d:'Кузнецов Д.',  s:'УЗИ органов брюшной полости', st:'ok'},
+        {t:'12:30', p:'Дементьев П.', d:'Иванова А.',   s:'Повторный приём',            st:'ok'},
+        {t:'13:00', p:'Гаврилова Л.', d:'Петров С.',    s:'Консультация',               st:'move'}
+      ],
+      rep:[
+        ['486 000 ₽','выручка за день','▲ +9% ко вчера',0],
+        ['2 340 ₽','средний чек','▲ +4%',0],
+        ['18','новых пациентов','▼ −2 к вчера',1]
+      ]
+    },
+    week: {
+      title:'Записи · неделя, 19–25 октября',
+      sub:'Пн–вс · 4 кабинета · 6 врачей в смене',
+      kpi:[
+        {v:386, s:'', l:'записей за неделю',     d:'▲ +9% к прошлой'},
+        {v:81,  s:'%', l:'заполненность слотов', d:'▲ +2 п.п.'},
+        {v:342, s:'', l:'напоминаний отправлено', d:'95% доставлено'},
+        {v:14,  s:'', l:'отмены и переносы',      d:'▼ −3 к прошлой', dn:1}
+      ],
+      fillSub:'За неделю, по врачам',
+      fill:[['Терапия · Иванова А.',88],['Кардиология · Петров С.',79],
+            ['УЗИ-диагностика · Кузнецов Д.',83],['Педиатрия · Соколова М.',61],
+            ['Гинекология · Морозова О.',74],['Дерматология · Лебедев И.',52]],
+      head:['День','Пациент','Врач','Услуга','Статус'],
+      rows:[
+        {t:'пн · 09:00', p:'Тимофеева Р.', d:'Иванова А.',   s:'Первичный приём',            st:'ok'},
+        {t:'пн · 15:30', p:'Кулагин А.',   d:'Петров С.',    s:'Консультация',               st:'ok'},
+        {t:'вт · 10:00', p:'Смирнова К.',  d:'Кузнецов Д.',  s:'УЗИ органов брюшной полости', st:'ok'},
+        {t:'ср · 11:30', p:'Мельник О.',   d:'Петров С.',    s:'ЭКГ с расшифровкой',         st:'wait'},
+        {t:'чт · 14:00', p:'Ерохин Д.',    d:'Кузнецов Д.',  s:'Диспансерный осмотр',        st:'move'},
+        {t:'пт · 09:30', p:'Панкратова Ю.',d:'Соколова М.',  s:'Повторный приём',            st:'ok'},
+        {t:'сб · 12:00', p:'Гаврилова Л.', d:'Морозова О.',  s:'Консультация',               st:'wait'}
+      ],
+      rep:[
+        ['2 940 000 ₽','выручка за неделю','▲ +7% к прошлой',0],
+        ['2 280 ₽','средний чек','▲ +2%',0],
+        ['96','новых пациентов','▲ +11',0]
+      ]
+    }
+  };
+
+  var CABS = [
+    {n:'Кабинет 1 · терапия',     doc:'Иванова А.'},
+    {n:'Кабинет 2 · кардиология', doc:'Петров С.'},
+    {n:'Кабинет 3 · УЗИ',         doc:'Кузнецов Д.'},
+    {n:'Кабинет 4 · педиатрия',   doc:'Соколова М.'}
+  ];
+  var TIMES = ['09:00','10:30','11:00','12:30','14:00'];
+  var SLOTS = {'0-0':'Тимофеева Р.','0-2':'Дементьев П.','1-1':'Мельник О.','1-3':'Кулагин А.',
+               '2-0':'Смирнова К.','2-4':'Ерохин Д.','3-1':'Гаврилова Л.','3-3':'Панкратова Ю.'};
+  var ALL_TIMES = ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00',
+                   '14:00','14:30','15:00','15:30','16:00','17:00'];
+
+  var PAT = [
+    {n:'Тимофеева Р.', l:'25 октября',  c:4, ch:'Telegram', d:'Иванова А.'},
+    {n:'Мельник О.',   l:'25 октября',  c:2, ch:'SMS',      d:'Петров С.'},
+    {n:'Смирнова К.',  l:'25 октября',  c:7, ch:'Telegram', d:'Кузнецов Д.'},
+    {n:'Дементьев П.', l:'18 октября',  c:3, ch:'Звонок',   d:'Иванова А.'},
+    {n:'Гаврилова Л.', l:'11 октября',  c:1, ch:'Telegram', d:'Петров С.'},
+    {n:'Ерохин Д.',    l:'4 октября',   c:5, ch:'SMS',      d:'Кузнецов Д.'},
+    {n:'Панкратова Ю.',l:'27 сентября', c:2, ch:'Telegram', d:'Соколова М.'}
+  ];
+
+  var SETTINGS = [
+    {t:'Напоминания в Telegram', d:'Пациенту — сообщение за 2 часа до приёма', on:true},
+    {t:'Напоминания по SMS',     d:'Дублирование для пациентов без Telegram',  on:true},
+    {t:'Автоподтверждение записи', d:'Слот закрепляется сразу при записи онлайн', on:false},
+    {t:'Обезличивание выгрузок', d:'Отчёты и экспорт — без персональных данных (152-ФЗ)', on:true}
+  ];
+
+  var S = {p:'today', v:'records', sel:4};
+
+  /* ---------- builders ---------- */
+  function kpiHTML(d){
+    return '<div class="kpis">' + d.kpi.map(function(k,i){
+      return '<div class="kpi"><div class="ico">'+ICONS[i]+'</div><div><b>'+k.v+(k.s||'')+
+             '</b><span>'+esc(k.l)+'</span></div><div class="up'+(k.dn?' down':'')+'">'+k.d+'</div></div>';
+    }).join('') + '</div>';
+  }
+  function panel(t, s, inner){
+    return '<div class="panel"><h5>'+esc(t)+'</h5><p class="psub">'+esc(s)+'</p>'+inner+'</div>';
+  }
+  function chartHTML(){
+    return '<div class="chart">' + CHART.map(function(c,i){
+      return '<div class="col'+(i===S.sel?' sel':'')+'" data-day="'+i+'" role="button" tabindex="0" title="'+
+             c.d+': '+c.n+' подтверждённых записей (демо)"><i style="height:'+c.h+'%"></i><em>'+c.d+'</em></div>';
+    }).join('') + '</div>';
+  }
+  function fillHTML(d){
+    return '<div class="fill">' + d.fill.map(function(f){
+      return '<div class="frow"><span>'+esc(f[0])+'</span><b>'+f[1]+'%</b><div class="bar"><i style="width:'+
+             f[1]+'%"></i></div></div>';
+    }).join('') + '</div>';
+  }
+  function tableHTML(d){
+    if(!d.rows.length){
+      return '<div class="panel"><h5>Записей нет</h5><p class="psub">Создайте первую запись кнопкой «+ Новая запись»</p></div>';
+    }
+    return '<div class="panel table-panel"><table class="records"><thead><tr>'+
+      d.head.map(function(h){ return '<th>'+esc(h)+'</th>'; }).join('')+'<th></th></tr></thead><tbody>'+
+      d.rows.map(function(r,i){
+        return '<tr data-i="'+i+'"><td class="tm">'+esc(r.t)+'</td><td>'+esc(r.p)+'</td>'+
+          '<td><div class="who"><span class="av">'+av(r.d)+'</span>'+esc(r.d)+'</div></td>'+
+          '<td>'+esc(r.s)+'</td>'+
+          '<td><button class="tag '+STC[r.st]+'" type="button" title="Клик — сменить статус (демо)">'+ST[r.st]+'</button></td>'+
+          '<td><button class="rm" type="button" title="Отменить запись (демо)" aria-label="Отменить запись">✕</button></td></tr>';
+      }).join('')+'</tbody></table></div>';
+  }
+  function slotsHTML(){
+    var free = 0, h = '<div class="slots"><div class="sh"></div>';
+    TIMES.forEach(function(t){ h += '<div class="sh">'+t+'</div>'; });
+    CABS.forEach(function(c,ci){
+      h += '<div class="cab">'+esc(c.n)+'</div>';
+      TIMES.forEach(function(t,ti){
+        var who = SLOTS[ci+'-'+ti];
+        if(who){ h += '<button class="slot busy" type="button" data-cab="'+ci+'" data-time="'+t+'" data-who="'+who+
+                       '" title="'+esc(who)+' · запись (демо)">'+esc(who)+'<small>занят</small></button>'; }
+        else { free++; h += '<button class="slot" type="button" data-cab="'+ci+'" data-time="'+t+
+                       '" title="Создать запись (демо)">свободно</button>'; }
+      });
+    });
+    return h+'</div>';
+  }
+  function doctorsHTML(){
+    return '<div class="panel"><h5>Врачи и загрузка</h5><p class="psub">Переключатель справа — снять врача со смены (демо)</p>'+
+      '<div class="dlist">'+DOC.map(function(d,i){
+        return '<div class="drow"><span class="av">'+av(d.n)+'</span>'+
+          '<div><b>'+d.n+'</b><div class="m">'+d.sp+'</div></div>'+
+          '<div class="load"><b>Загрузка '+d.load+'%</b><div class="bar"><i style="width:'+d.load+'%"></i></div></div>'+
+          '<div class="m" style="text-align:right">'+(d.on?'на смене':'выходной')+'</div>'+
+          '<button class="switch'+(d.on?' on':'')+'" type="button" data-doc="'+i+'" aria-pressed="'+d.on+
+          '" aria-label="Смена: '+d.n+'"></button></div>';
+      }).join('')+'</div></div>';
+  }
+  function patientsHTML(){
+    return '<div class="panel"><h5>База пациентов</h5><p class="psub">Демо-данные · поиск по имени или врачу</p>'+
+      '<div class="tools"><input id="pSearch" type="search" placeholder="Найти пациента..." aria-label="Поиск пациента"></div>'+
+      '<div class="dlist" id="pList">'+PAT.map(function(p){
+        return '<div class="drow" data-key="'+esc((p.n+' '+p.d+' '+p.ch).toLowerCase())+'"><span class="av">'+av(p.n)+'</span>'+
+          '<div><b>'+p.n+'</b><div class="m">последний визит: '+p.l+' · визитов: '+p.c+'</div></div>'+
+          '<div class="m">'+p.d+'</div><div class="m">'+p.ch+'</div>'+
+          '<span class="tag t-ok">активен</span></div>';
+      }).join('')+'</div>'+
+      '<p class="psub" id="pEmpty" style="display:none;margin-top:12px">Ничего не найдено</p></div>';
+  }
+  function reportsHTML(d){
+    return '<div class="rep-grid">'+d.rep.map(function(r){
+        return '<div class="rep"><b>'+esc(r[0])+'</b><span>'+esc(r[1])+'</span><em'+(r[3]?' class="dn"':'')+'>'+r[2]+'</em></div>';
+      }).join('')+'</div>'+
+      '<div class="dash-row" style="margin-bottom:14px">'+
+        panel('Динамика записей','Пн — вс, подтверждённые записи · кликните столбец', chartHTML())+
+        panel('Заполненность кабинетов', d.fillSub, fillHTML(d))+
+      '</div>'+
+      '<div class="panel"><h5>Выгрузка</h5><p class="psub">CSV с текущими записями таблицы — открывается в Excel</p>'+
+      '<button class="ghost-btn" id="expBtn" type="button">Скачать CSV ↓</button></div>';
+  }
+  function settingsHTML(){
+    return '<div class="set-list">'+SETTINGS.map(function(s,i){
+        return '<div class="set"><div><b>'+esc(s.t)+'</b><p>'+esc(s.d)+'</p></div>'+
+          '<button class="switch'+(s.on?' on':'')+'" type="button" data-set="'+i+'" aria-pressed="'+s.on+
+          '" aria-label="'+esc(s.t)+'"></button></div>';
+      }).join('')+'</div>'+
+      '<div class="set" style="margin-top:12px"><div><b>Срок хранения персональных данных</b>'+
+      '<p>После срока — автоматическое обезличивание</p></div>'+
+      '<select id="keepSel" aria-label="Срок хранения"><option>6 месяцев</option><option selected>1 год</option><option>3 года</option></select></div>'+
+      '<div class="set" style="margin-top:12px"><div><b>Лог доступа</b><p>Кто и когда открывал записи пациентов</p></div>'+
+      '<button class="ghost-btn" id="logBtn" type="button">Открыть журнал</button></div>'+
+      '<p class="psub" style="margin-top:14px">Переключатели рабочие, но настройки живут только пока открыта вкладка — это демо-макет.</p>';
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    var d = DATA[S.p], html;
+    if(S.v === 'records'){
+      titleEl.textContent = d.title; subEl.textContent = d.sub;
+      html = kpiHTML(d) + '<div class="dash-row">' +
+        panel('Записи по дням','Пн — вс, подтверждённые записи · кликните столбец', chartHTML()) +
+        panel('Заполненность кабинетов', d.fillSub, fillHTML(d)) + '</div>' + tableHTML(d);
+    } else if(S.v === 'schedule'){
+      titleEl.textContent = 'Расписание · кабинеты и слоты';
+      subEl.textContent = '25 октября · 4 кабинета · 5 врачей на смене';
+      html = '<div class="panel"><h5>Слот-таблица на день</h5>'+
+        '<p class="psub">Свободный слот — создать запись, занятый — информация о записи</p>'+
+        '<div class="slots-wrap">'+slotsHTML()+'</div></div>';
+    } else if(S.v === 'doctors'){
+      titleEl.textContent = 'Врачи · загрузка и смена';
+      subEl.textContent = 'Клиника на Лесной · 6 врачей в штате';
+      html = doctorsHTML();
+    } else if(S.v === 'patients'){
+      titleEl.textContent = 'Пациенты · база за 12 месяцев';
+      subEl.textContent = '7 карт пациентов · демо-данные';
+      html = patientsHTML();
+    } else if(S.v === 'reports'){
+      titleEl.textContent = S.p === 'today' ? 'Отчёты · сегодня, 25 октября' : 'Отчёты · 19–25 октября';
+      subEl.textContent = d.sub;
+      html = reportsHTML(d);
+    } else {
+      titleEl.textContent = 'Настройки · персональные данные (152-ФЗ)';
+      subEl.textContent = 'Клиника на Лесной · демо-настройки';
+      html = settingsHTML();
+    }
+    viewEl.innerHTML = html;
+    bindInputs();
+    syncTip();
+  }
+
+  function bindInputs(){
+    var si = document.getElementById('pSearch');
+    if(si) si.addEventListener('input', function(){
+      var q = si.value.trim().toLowerCase(), shown = 0;
+      Array.prototype.forEach.call(document.querySelectorAll('#pList .drow'), function(r){
+        var ok = !q || r.getAttribute('data-key').indexOf(q) > -1;
+        r.style.display = ok ? '' : 'none';
+        if(ok) shown++;
+      });
+      document.getElementById('pEmpty').style.display = shown ? 'none' : 'block';
+    });
+    var ks = document.getElementById('keepSel');
+    if(ks) ks.addEventListener('change', function(){ toast('Срок хранения: '+ks.value+' (демо)'); });
+  }
+
+  function syncTip(){
+    var on = DOC.filter(function(d){ return d.on; }).length;
+    tipText.textContent = 'Обновлено ' + SYNC + ' · ' + on + ' из ' + DOC.length + ' врачей онлайн';
+  }
+  var SYNC = '4 минуты назад';
+
+  var tTimer;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(tTimer);
+    tTimer = setTimeout(function(){ toastEl.classList.remove('on'); }, 2400);
+  }
+
+  /* ---------- modal ---------- */
+  function openModal(time, docName){
+    if(docName) mDoc.value = docName;
+    if(time) mTime.value = time;
+    modal.hidden = false;
+    setTimeout(function(){ mPat.focus(); }, 30);
+  }
+  function closeModal(){ modal.hidden = true; mPat.value = ''; mPat.style.borderColor = ''; }
+
+  mDoc.innerHTML = DOC.map(function(d){ return '<option>'+d.n+'</option>'; }).join('');
+  mTime.innerHTML = ALL_TIMES.map(function(t){ return '<option>'+t+'</option>'; }).join('');
+
+  document.getElementById('dashNew').addEventListener('click', function(){ openModal(); });
+  document.getElementById('mCancel').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+  document.getElementById('dashForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = mPat.value.trim();
+    if(!name){ mPat.style.borderColor = '#E85C77'; toast('Укажите имя пациента'); return; }
+    var d = DATA[S.p];
+    var row = {t: S.p === 'week' ? '25.10 · '+mTime.value : mTime.value,
+               p: name, d: mDoc.value, s: mSvc.value, st: 'wait'};
+    if(S.p === 'today'){ d.rows.push(row); d.rows.sort(function(a,b){ return a.t < b.t ? -1 : 1; }); }
+    else { d.rows.unshift(row); }
+    d.kpi[0].v++;
+    closeModal();
+    if(S.v !== 'records'){ S.v = 'records'; markNav(); }
+    render();
+    toast('Запись добавлена: '+row.t+' · '+name+' (демо)');
+  });
+
+  /* ---------- state switches ---------- */
+  function markNav(){
+    Array.prototype.forEach.call(root.querySelectorAll('.dash-nav a'), function(a){
+      a.classList.toggle('on', a.getAttribute('data-view') === S.v);
+    });
+    Array.prototype.forEach.call(root.querySelectorAll('#dashSeg button'), function(b){
+      b.classList.toggle('on', b.getAttribute('data-period') === S.p);
+    });
+  }
+
+  root.addEventListener('click', function(e){
+    var t = e.target, el;
+
+    if((el = t.closest('#dashSeg button'))){ S.p = el.getAttribute('data-period'); markNav(); render(); return; }
+    if((el = t.closest('.dash-nav a'))){ e.preventDefault(); S.v = el.getAttribute('data-view'); markNav(); render(); return; }
+    if(t.closest('#dashTip')){
+      SYNC = 'только что'; syncTip(); toast('Синхронизация с МИС обновлена (демо)'); return;
+    }
+    if((el = t.closest('td .tag'))){
+      var tr = el.closest('tr'), r = DATA[S.p].rows[+tr.getAttribute('data-i')];
+      r.st = ORDER[(ORDER.indexOf(r.st) + 1) % ORDER.length];
+      el.className = 'tag ' + STC[r.st];
+      el.textContent = ST[r.st];
+      toast('Статус записи '+r.t+': '+ST[r.st]+' (демо)');
+      return;
+    }
+    if((el = t.closest('.rm'))){
+      var row = DATA[S.p].rows.splice(+el.closest('tr').getAttribute('data-i'), 1)[0];
+      DATA[S.p].kpi[0].v--; DATA[S.p].kpi[3].v++;
+      render();
+      toast('Запись отменена: '+row.t+' · '+row.p+' (демо)');
+      return;
+    }
+    if((el = t.closest('.chart .col'))){
+      S.sel = +el.getAttribute('data-day');
+      var c = CHART[S.sel];
+      render();
+      toast(c.d+': '+c.n+' подтверждённых записей (демо)');
+      return;
+    }
+    if((el = t.closest('.slot'))){
+      var cab = CABS[+el.getAttribute('data-cab')], time = el.getAttribute('data-time');
+      if(el.classList.contains('busy')){
+        toast(el.getAttribute('data-who')+' · '+time+' · '+cab.doc+' (демо)');
+      } else {
+        openModal(time, cab.doc);
+        toast('Свободный слот '+time+' — заполняем запись');
+      }
+      return;
+    }
+    if((el = t.closest('.switch'))){
+      if(el.hasAttribute('data-doc')){
+        var i = +el.getAttribute('data-doc'), doc = DOC[i];
+        doc.on = !doc.on;
+        el.classList.toggle('on', doc.on);
+        el.setAttribute('aria-pressed', doc.on);
+        var stateEl = el.parentNode.querySelector('.m[style]');
+        if(stateEl) stateEl.textContent = doc.on ? 'на смене' : 'выходной';
+        syncTip();
+        toast(doc.n+': '+(doc.on ? 'на смене' : 'убран со смены')+' (демо)');
+      } else if(el.hasAttribute('data-set')){
+        var si2 = +el.getAttribute('data-set');
+        SETTINGS[si2].on = !SETTINGS[si2].on;
+        el.classList.toggle('on', SETTINGS[si2].on);
+        el.setAttribute('aria-pressed', SETTINGS[si2].on);
+        toast(SETTINGS[si2].t+': '+(SETTINGS[si2].on ? 'включено' : 'выключено')+' (демо)');
+      }
+      return;
+    }
+    if(t.closest('#expBtn')){ exportCSV(); return; }
+    if(t.closest('#logBtn')){ toast('Журнал доступа: 24 записи за сутки (демо)'); return; }
+  });
+
+  /* keyboard for clickable divs */
+  root.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target;
+    if(t.id === 'dashTip'){ e.preventDefault(); SYNC = 'только что'; syncTip(); toast('Синхронизация с МИС обновлена (демо)'); }
+    if(t.classList && t.classList.contains('col')){ e.preventDefault(); t.click(); }
+  });
+
+  function exportCSV(){
+    var d = DATA[S.p];
+    var lines = [d.head.join(';')].concat(d.rows.map(function(r){
+      return [r.t, r.p, r.d, r.s, ST[r.st]].join(';');
+    }));
+    var blob = new Blob(['\uFEFF' + lines.join('\r\n')], {type:'text/csv;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'klinika-demo-' + S.p + '.csv';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    toast('CSV сохранён — ' + d.rows.length + ' записей (демо)');
+  }
+
+  render();
 })();
 </script>
 </body>
