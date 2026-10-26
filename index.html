@@ -25,6 +25,7 @@
   --shadow-sm:0 6px 18px rgba(19,74,146,.07);
 }
 *{box-sizing:border-box} html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
 body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
 h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.16;margin:0 0 .5em}
 img{max-width:100%;display:block}
@@ -313,13 +314,20 @@ footer .grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:ce
   section{padding:60px 0}
   .nav-links{display:none}
   .burger{display:block}
+  .nav{gap:14px;height:64px}
+  .logo{font-size:18px}
+  /* CTA из шапки не влезает на 390px — есть в hero */
+  .nav > a.btn{display:none !important}
   .cards3,.docs,.quotes,.tariffs,.steps4,.feats,.kpis{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
   .dashboard{grid-template-columns:1fr}
+  .dashboard>*{min-width:0}
   .dash-side{border-right:0;border-bottom:1px solid var(--line);padding:16px}
   .dash-side .tip{display:none}
-  .dash-nav{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;gap:8px}
-  .dash-main{padding:18px 16px}
+  .dash-nav{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;gap:8px;justify-content:flex-start}
+  .dash-main{padding:18px 16px;overflow-x:hidden}
+  .table-panel{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .records{min-width:560px}
   .records th:nth-child(4),.records td:nth-child(4){display:none}
   .rep-grid{grid-template-columns:1fr}
   .drow{grid-template-columns:auto 1fr auto}
